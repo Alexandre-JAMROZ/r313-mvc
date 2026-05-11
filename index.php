@@ -5,6 +5,10 @@ define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
 // Inclusion des classes de base nécessaires aux modèles et aux contrôleurs
 require_once(ROOT.'app/Model.php');
 require_once(ROOT.'app/Controller.php');
+require_once(ROOT.'app/Debug.php');
+
+// A commenter pour désactiver le mode debug
+\app\Debug::$actif = true;
 
 // On sépare les paramètres et on les met dans le tableau $params
 $params = explode('/', $_GET['p']);
