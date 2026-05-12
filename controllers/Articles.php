@@ -17,4 +17,21 @@ class Articles extends \app\Controller {
         // On affiche les données
         $this->render("index", compact("articles"));
     }
+
+    /**
+     * Méthode permettant d'afficher un article à partir de son slug
+     * 
+     * @param stirng $slug
+     * @return void
+     */
+    public function lire(string $slug) {
+        // On instancie le modèle "Article"
+        $this->loadModel('Articles');
+
+        // On stocke l'article dans $article
+        $articles = $this->Articles->findBySlug($slug);
+
+        // On envoie les données à la vue lire
+        $this->render('lire', compact('articles'));
+    }
 }
